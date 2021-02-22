@@ -2,14 +2,21 @@
 #include <time.h>
 
 int puzzle[4][4];
+int* ppuzle=puzzle;
+int i, j, ranx, rany;
+int x,y,z = 0;
 
 int main(void)
 {
 	srand(time(NULL));
-	int i, j, k, temp;
+	suffle();
+
+	return 0;
+}
+
+int suffle()
+{
 	int count = 1;
-	int ranx = rand() % 4;
-	int rany = rand() % 4;
 	for (i = 0; i < 4; i++)
 	{
 		for (j = 0; j < 4; j++)
@@ -17,27 +24,31 @@ int main(void)
 			puzzle[i][j] = count++;
 		}
 	}
-
-	for (k = 0; k < 4; k++)
 	{
 		for (i = 0; i < 4; i++)
 		{
 			for (j = 0; j < 4; j++)
 			{
-				temp = puzzle[i][j];
-				puzzle[i][j] = puzzle[ranx][rany];
-				puzzle[ranx][rany] = temp;
-			}
-		}
-	}
-		for (i = 0; i < 4; i++)
-		{
-			for (j = 0; j < 4; j++)
-			{
-				printf("%d ", puzzle[i][j]);
+				printf(" %d  ", puzzle[i][j]);
+				if (puzzle[i][j] <= 10)  //깔끔하게 정리
+					printf(" ");
 			}
 			printf("\n");
 		}
-		return 0;
+	}
+	ranx, rany = rand() % 4; //0~3
+		{
+			for (i = 0; i < 4; i++)
+			{
+				for (j = 0; j < 4; j++)
+				{
+					if(ranx==x,rany==x)
+					printf(" %d  ", puzzle[ranx][rany]);
+					if (puzzle[i][j] <= 10)  //깔끔하게 정리
+						printf(" ");
+				}
+				printf("\n");
+			}
+		}
+	return 0;
 }
-
